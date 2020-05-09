@@ -11,6 +11,7 @@ namespace WebCK.Controllers
         public ActionResult Index()
         {
             string a = "";
+            string b = "";
             return View();
         }
     }
