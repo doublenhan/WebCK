@@ -9,9 +9,7 @@ namespace WebCK.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
-            string a = "";
-            string b = "";
+        {         
             return View();
         }
     }
