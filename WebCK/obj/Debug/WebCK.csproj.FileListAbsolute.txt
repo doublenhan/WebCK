@@ -88,3 +88,4 @@ D:\New folder\WebCK\WebCK\bin\EntityFramework.xml
 D:\New folder\WebCK\WebCK\bin\EntityFramework.SqlServer.xml
 D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.FirstDemoData.resources
 D:\New folder\WebCK\WebCK\obj\Debug\WebCK.csproj.GenerateResource.cache
+D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.SecendDemoData.resources

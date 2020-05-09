@@ -7,22 +7,22 @@ using System.Web;
 
 namespace WebCK.Models
 {
-    public class User
-    { 
+    public class Teacher
+    {
         [Key]
         public int ID { get; set; }
-        
-        [StringLength (50)]
-        [Display(Name ="Họ Tên")]
-        public string FullName { get; set; }
-
-        [StringLength(9)]
-        [Display(Name = "Mã Số Sinh Viên")]
-        public string MSSV { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Lớp")]
-        public string Classs { get; set; }
+        [Display(Name = "Họ Tên")]
+        public string FullName { get; set; }
+
+        [Display(Name = "Khoa")]
+        public int IDFaculity { get; set; }
+
+        [StringLength(9)]
+        [Display(Name = "Mã Số Giảng Viên")]
+        public string MSSV { get; set; }
+
 
         [Display(Name = "Địa Chỉ")]
         public string Address { get; set; }
@@ -45,5 +45,7 @@ namespace WebCK.Models
         [Column(TypeName = "smalldatetime")]
         public DateTime? DATEBEGIN { get; set; }
         public int ID_QUYEN { get; set; }
+
+        public Faculity Faculities { get; set; }
     }
 }

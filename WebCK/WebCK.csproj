@@ -171,11 +171,19 @@
     <Compile Include="Migrations\202005090700508_FirstDemoData.designer.cs">
       <DependentUpon>202005090700508_FirstDemoData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005091207148_SecendDemoData.cs" />
+    <Compile Include="Migrations\202005091207148_SecendDemoData.designer.cs">
+      <DependentUpon>202005091207148_SecendDemoData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Faculity.cs" />
+    <Compile Include="Models\FaculityDetail.cs" />
+    <Compile Include="Models\Fanpage.cs" />
     <Compile Include="Models\ServerDBContext.cs" />
     <Compile Include="Models\Role.cs" />
-    <Compile Include="Models\Specialize.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Slide.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +272,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202005090700508_FirstDemoData.resx">
       <DependentUpon>202005090700508_FirstDemoData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005091207148_SecendDemoData.resx">
+      <DependentUpon>202005091207148_SecendDemoData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
