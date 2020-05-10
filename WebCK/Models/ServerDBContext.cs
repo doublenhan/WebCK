@@ -29,5 +29,6 @@ namespace WebCK.Models
         public DbSet<Student> Students { get; set; }
         public DbSet<Fanpage> Fanpages { get; set; }
         public DbSet<Slide> Slides { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -175,6 +176,14 @@
     <Compile Include="Migrations\202005091207148_SecendDemoData.designer.cs">
       <DependentUpon>202005091207148_SecendDemoData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005100328115_ThirdData.cs" />
+    <Compile Include="Migrations\202005100328115_ThirdData.designer.cs">
+      <DependentUpon>202005100328115_ThirdData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005100333036_ThirdData1.cs" />
+    <Compile Include="Migrations\202005100333036_ThirdData1.designer.cs">
+      <DependentUpon>202005100333036_ThirdData1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Faculity.cs" />
     <Compile Include="Models\FaculityDetail.cs" />
@@ -183,6 +192,7 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Slide.cs" />
     <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005091207148_SecendDemoData.resx">
       <DependentUpon>202005091207148_SecendDemoData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005100328115_ThirdData.resx">
+      <DependentUpon>202005100328115_ThirdData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005100333036_ThirdData1.resx">
+      <DependentUpon>202005100333036_ThirdData1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
