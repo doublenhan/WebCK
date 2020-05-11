@@ -21,7 +21,7 @@ namespace WebCK.Models
 
         [StringLength(9)]
         [Display(Name = "Mã Số Giảng Viên")]
-        public string MSSV { get; set; }
+        public string MSGV { get; set; }
 
 
         [Display(Name = "Địa Chỉ")]
@@ -44,8 +44,12 @@ namespace WebCK.Models
 
         [Column(TypeName = "smalldatetime")]
         public DateTime? DATEBEGIN { get; set; }
-        public int ID_QUYEN { get; set; }
-
+        //public int ID_QUYEN { get; set; }
+        public Role Roles { get; set; }
         public Faculity Faculities { get; set; }
+
+        public  ICollection<Subject> Subjects { get; set; }
+
+        
     }
 }

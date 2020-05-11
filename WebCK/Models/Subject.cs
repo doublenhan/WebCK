@@ -11,14 +11,17 @@ namespace WebCK.Models
         
         [Key]
         public int ID { get; set; }
-        [Display (Name ="Tên Đề Tài")]
-        [StringLength (100)]
+        [Display (Name = "Tên Đề Tài")]
+        [StringLength(100)]
         public string SubjectName { get; set; }
 
         [StringLength(150)]
         public string Content { get; set; }
  
         public string Description { get; set; }
-        
+
+        public Teacher Teachers { get; set; }
+
+        public  ICollection<Student> Students { get; set; }
     }
 }

@@ -6,16 +6,17 @@ using System.Web;
 
 namespace WebCK.Models
 {
-    public class Role
+    public class Account
     {
         [Key]
         public int ID { get; set; }
 
-        [StringLength(50)]
-        public string RoleName { get; set; }
+        [Display(Name = "Email")]
+        [StringLength(255)]
+        public string EMAIL { get; set; }
 
-        public  ICollection<Teacher> Teachers { get; set; }
-
-        public  ICollection<Account> Accounts { get; set; }
+        public string PASSWORD { get; set; }
+        
+        public Role Roles { get; set; }
     }
 }

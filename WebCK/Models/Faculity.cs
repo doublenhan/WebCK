@@ -11,10 +11,12 @@ namespace WebCK.Models
         [Key]
         public int ID { get; set; }
         [StringLength(200)]
-        public string FaculityName { get; set; }
+        public string FaculityName { get; set; } 
 
-        public FaculityDetail FaculityDetails { get; set; }
+        public  ICollection<IndustryofFaculity> IndustryofFaculities { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public  ICollection<Student> Students { get; set; }
+
+        public  ICollection<Teacher> Teachers { get; set; }
     }
 }

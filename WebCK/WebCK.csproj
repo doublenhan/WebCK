@@ -162,31 +162,36 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\FaculitiesController.cs" />
+    <Compile Include="Controllers\FanpagesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndustryofFaculitiesController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SlidesController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\SubjectsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005090700508_FirstDemoData.cs" />
-    <Compile Include="Migrations\202005090700508_FirstDemoData.designer.cs">
-      <DependentUpon>202005090700508_FirstDemoData.cs</DependentUpon>
+    <Compile Include="Migrations\202005110856173_data_v1.cs" />
+    <Compile Include="Migrations\202005110856173_data_v1.designer.cs">
+      <DependentUpon>202005110856173_data_v1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005091207148_SecendDemoData.cs" />
-    <Compile Include="Migrations\202005091207148_SecendDemoData.designer.cs">
-      <DependentUpon>202005091207148_SecendDemoData.cs</DependentUpon>
+    <Compile Include="Migrations\202005110921484_data_v2.cs" />
+    <Compile Include="Migrations\202005110921484_data_v2.designer.cs">
+      <DependentUpon>202005110921484_data_v2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202005100328115_ThirdData.cs" />
-    <Compile Include="Migrations\202005100328115_ThirdData.designer.cs">
-      <DependentUpon>202005100328115_ThirdData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005100333036_ThirdData1.cs" />
-    <Compile Include="Migrations\202005100333036_ThirdData1.designer.cs">
-      <DependentUpon>202005100333036_ThirdData1.cs</DependentUpon>
+    <Compile Include="Migrations\202005110944365_data_v3.cs" />
+    <Compile Include="Migrations\202005110944365_data_v3.designer.cs">
+      <DependentUpon>202005110944365_data_v3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Faculity.cs" />
-    <Compile Include="Models\FaculityDetail.cs" />
+    <Compile Include="Models\IndustryofFaculity.cs" />
     <Compile Include="Models\Fanpage.cs" />
     <Compile Include="Models\ServerDBContext.cs" />
     <Compile Include="Models\Role.cs" />
@@ -280,17 +285,14 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005090700508_FirstDemoData.resx">
-      <DependentUpon>202005090700508_FirstDemoData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005110856173_data_v1.resx">
+      <DependentUpon>202005110856173_data_v1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005091207148_SecendDemoData.resx">
-      <DependentUpon>202005091207148_SecendDemoData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005110921484_data_v2.resx">
+      <DependentUpon>202005110921484_data_v2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005100328115_ThirdData.resx">
-      <DependentUpon>202005100328115_ThirdData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005100333036_ThirdData1.resx">
-      <DependentUpon>202005100333036_ThirdData1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202005110944365_data_v3.resx">
+      <DependentUpon>202005110944365_data_v3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

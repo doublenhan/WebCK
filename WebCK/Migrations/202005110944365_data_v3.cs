@@ -3,16 +3,16 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class ThirdData1 : DbMigration
+    public partial class data_v3 : DbMigration
     {
         public override void Up()
         {
-            DropColumn("dbo.FaculityDetails", "FaculityName");
+            DropColumn("dbo.Students", "IDFaculity");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.FaculityDetails", "FaculityName", c => c.String(maxLength: 200));
+            AddColumn("dbo.Students", "IDFaculity", c => c.Int(nullable: false));
         }
     }
 }

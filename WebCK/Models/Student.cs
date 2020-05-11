@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Web;
 
@@ -12,12 +13,12 @@ namespace WebCK.Models
         [Key]
         public int ID { get; set; }
         
-        [StringLength (50)]
-        [Display(Name ="Họ Tên")]
+        [StringLength(50)]
+        [Display(Name = "Họ Tên")]
         public string FullName { get; set; }
 
-        [Display(Name = "Khoa")]
-        public int IDFaculity { get; set; }
+        //[Display(Name = "Khoa")]
+        //public int IDFaculity { get; set; }
 
         [StringLength(9)]
         [Display(Name = "Mã Số Sinh Viên")]
@@ -47,8 +48,13 @@ namespace WebCK.Models
 
         [Column(TypeName = "smalldatetime")]
         public DateTime? DATEBEGIN { get; set; }
-        public int ID_QUYEN { get; set; }
+
+        //public int ID_QUYEN { get; set; }
 
         public Faculity Faculities { get; set; }
+
+        public IndustryofFaculity IndustryofFaculities { get; set; } 
+
+        public Subject Subjects { get; set; }
     }
 }

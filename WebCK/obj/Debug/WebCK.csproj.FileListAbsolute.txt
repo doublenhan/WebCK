@@ -86,9 +86,8 @@ D:\New folder\WebCK\WebCK\bin\EntityFramework.dll
 D:\New folder\WebCK\WebCK\bin\EntityFramework.SqlServer.dll
 D:\New folder\WebCK\WebCK\bin\EntityFramework.xml
 D:\New folder\WebCK\WebCK\bin\EntityFramework.SqlServer.xml
-D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.FirstDemoData.resources
+D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.data_v1.resources
 D:\New folder\WebCK\WebCK\obj\Debug\WebCK.csproj.GenerateResource.cache
-D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.SecendDemoData.resources
+D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.data_v2.resources
 D:\New folder\WebCK\WebCK\obj\Debug\WebCK.csprojAssemblyReference.cache
-D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.ThirdData.resources
-D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.ThirdData1.resources
+D:\New folder\WebCK\WebCK\obj\Debug\WebCK.Migrations.data_v3.resources

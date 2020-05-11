@@ -24,11 +24,12 @@ namespace WebCK.Models
         }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Faculity> Faculities { get; set; }
-        public DbSet<FaculityDetail> FaculityDetails { get; set; }
+        public DbSet<IndustryofFaculity> FaculityDetails { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Fanpage> Fanpages { get; set; }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Account> Accounts { get; set; }
     }
 }

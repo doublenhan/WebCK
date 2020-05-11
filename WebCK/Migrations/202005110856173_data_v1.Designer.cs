@@ -7,13 +7,13 @@ namespace WebCK.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class SecendDemoData : IMigrationMetadata
+    public sealed partial class data_v1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SecendDemoData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(data_v1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202005091207148_SecendDemoData"; }
+            get { return "202005110856173_data_v1"; }
         }
         
         string IMigrationMetadata.Source
