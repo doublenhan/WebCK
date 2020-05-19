@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7c4dab666494a7da29cd10a3f390b92" Name="Diagram1">
+        <EntityTypeShape EntityType="WebCKModel.Account" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Faculity" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Fanpage" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.IndustryofFaculity" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Role" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Silde" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Student" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Subject" Width="1.5" PointX="4.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.sysdiagram" Width="1.5" PointX="6.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Teacher" Width="1.5" PointX="8.75" PointY="0.625" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

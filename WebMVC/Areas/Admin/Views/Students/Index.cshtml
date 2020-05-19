@@ -1,0 +1,133 @@
+﻿@model IEnumerable<WebMVC.Areas.Admin.Models.mvcStudentModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Thông Tin Sinh Viên</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thông Tin Sinh Viên </h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayName("Họ Tên")
+                        </th>
+                        <th>
+                            @Html.DisplayName("MSSV")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Lớp")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Số điện thoại")
+                        </th>
+                        <th>
+                            @Html.DisplayName("Email")
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID_Faculity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID_IndustryofFaculity)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID_Subject)
+                        </th>
+                    </tr>
+                </thead>
+                @*<tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Họ Tên")
+                            </th>
+                            <th>
+                                @Html.DisplayName("MSSV")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Lớp")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Số điện thoại")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Email")
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID_Faculity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID_IndustryofFaculity)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID_Subject)
+                            </th>
+                        </tr>
+                    </tfoot>*@
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MSSV)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Class)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumberPhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_Faculity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_IndustryofFaculity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_Subject)
+                            </td>
+                            <td>
+                                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+                                <a class="edit-link" href="@Url.Action("Edit", new { id = item.ID })"><span style="color: #0e13dc">Edit</span></a> |
+                                <a class="detail-link" href="@Url.Action("Details", new { id = item.ID })"><span style="color: #0e13dc">Detail</span></a> |
+                                <a class="delete-link" href="@Url.Action("Delete", new { id = item.ID })"><span style="color: #0e13dc">Delete</span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        $(function () {
+            alertify.set('notifier', 'position', 'top-right');
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage + alertify.get('notifier', 'position'));
+        })
+    </script>
+    }

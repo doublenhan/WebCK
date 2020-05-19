@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebCKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID_Account" />
+    </Key>
+    <Property Name="ID_Account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Roles" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Faculity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Faculity" Type="Int32" Nullable="false" />
+    <Property Name="Faculity_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IndustryOfFaculity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Fanpage">
+    <Key>
+      <PropertyRef Name="ID_Fanpage" />
+    </Key>
+    <Property Name="ID_Fanpage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubTitle" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IndustryofFaculity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_IndustryofFaculity" Type="Int32" Nullable="false" />
+    <Property Name="ID_Faculity" Type="Int32" />
+    <Property Name="Industry_Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Roles" Type="Int32" />
+    <Property Name="Role_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Silde">
+    <Key>
+      <PropertyRef Name="ID_Silde" />
+    </Key>
+    <Property Name="ID_Silde" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MSSV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Class" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberPhone" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="0" />
+    <Property Name="DateBegin" Type="DateTime" Precision="0" />
+    <Property Name="ID_Faculity" Type="Int32" />
+    <Property Name="ID_IndustryofFaculity" Type="Int32" />
+    <Property Name="ID_Subject" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Subject" Type="Int32" Nullable="false" />
+    <Property Name="SubjectName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityContainer Name="data" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="Faculities" EntityType="Self.Faculity" />
+    <EntitySet Name="Fanpages" EntityType="Self.Fanpage" />
+    <EntitySet Name="IndustryofFaculities" EntityType="Self.IndustryofFaculity" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="Sildes" EntityType="Self.Silde" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Subjects" EntityType="Self.Subject" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Teachers" EntityType="WebCKModel.Teacher" />
+  </EntityContainer>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MSGV" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="NumberPhone" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateofBirth" Type="DateTime" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateBegin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ID_Roles" Type="Int32" />
+    <Property Name="ID_Faculity" Type="Int32" />
+    <Property Name="ID_Subject" Type="Int32" />
+  </EntityType>
+</Schema>
