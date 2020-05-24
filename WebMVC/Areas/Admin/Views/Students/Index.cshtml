@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Thông Tin Sinh Viên</h2>
+@*<h2>Thông Tin Sinh Viên</h2>*@
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="@Url.Action("Create","Students")" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Tạo Mới</a>
 </p>
 
 <!-- DataTales Example -->
@@ -16,9 +16,9 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="datatab" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
+                    <tr style="text-align:center ;font-size:medium">
                         <th>
                             @Html.DisplayName("Họ Tên")
                         </th>
@@ -30,56 +30,18 @@
                         </th>
                         <th>
                             @Html.DisplayName("Số điện thoại")
-                        </th>
+                        </th>                                         
                         <th>
-                            @Html.DisplayName("Email")
+                            @Html.DisplayName("Đề Tài")
                         </th>
-
-                        <th>
-                            @Html.DisplayNameFor(model => model.ID_Faculity)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ID_IndustryofFaculity)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.ID_Subject)
-                        </th>
+                        <th></th>
                     </tr>
-                </thead>
-                @*<tfoot>
-                        <tr>
-                            <th>
-                                @Html.DisplayName("Họ Tên")
-                            </th>
-                            <th>
-                                @Html.DisplayName("MSSV")
-                            </th>
-                            <th>
-                                @Html.DisplayName("Lớp")
-                            </th>
-                            <th>
-                                @Html.DisplayName("Số điện thoại")
-                            </th>
-                            <th>
-                                @Html.DisplayName("Email")
-                            </th>
-
-                            <th>
-                                @Html.DisplayNameFor(model => model.ID_Faculity)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ID_IndustryofFaculity)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ID_Subject)
-                            </th>
-                        </tr>
-                    </tfoot>*@
-                <tbody>
+                </thead>              
+                <tbody >
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
+                        <tr style="text-align:left ;font-size:15px">
+                            <td >
                                 @Html.DisplayFor(modelItem => item.FullName)
                             </td>
                             <td>
@@ -90,44 +52,35 @@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.NumberPhone)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Email)
-                            </td>
-
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID_Faculity)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ID_IndustryofFaculity)
-                            </td>
+                            </td>                                                      
                             <td>
                                 @Html.DisplayFor(modelItem => item.ID_Subject)
                             </td>
                             <td>
-                                @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
-                                <a class="edit-link" href="@Url.Action("Edit", new { id = item.ID })"><span style="color: #0e13dc">Edit</span></a> |
-                                <a class="detail-link" href="@Url.Action("Details", new { id = item.ID })"><span style="color: #0e13dc">Detail</span></a> |
-                                <a class="delete-link" href="@Url.Action("Delete", new { id = item.ID })"><span style="color: #0e13dc">Delete</span></a>
+                                <a href="@Url.Action("Edit","Students",new { id = item.ID })" class="btn btn-default"><i class="fas fa-edit" style="color: #ff0000"></i></a>|
+                                <a href="@Url.Action("Details","Students",new { id = item.ID })" class="btn btn-default"><i class="fas fa-info-circle" style="color: #00ff21"></i></a>
+                                @*<a onclick="Delete(@item.ID)" class="btn btn-default"><i class="fas fa-edit"></i></a>*@
                             </td>
-                        </tr>
+                        </tr>  
                     }
                 </tbody>
             </table>
         </div>
-    </div>
+    </div>   
 </div>
-
+<link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
 
 @section scripts{
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script>
         $(function () {
-            alertify.set('notifier', 'position', 'top-right');
+            alertify.set('notifier','position', 'top-right');
             var successMessage = '@TempData["SuccessMessage"]'
             if (successMessage != '')
-                alertify.success(successMessage + alertify.get('notifier', 'position'));
+                alertify.success(successMessage);
+        })
+        $(document).ready(function () {
+            $("#datatab").DataTable();
         })
     </script>
     }

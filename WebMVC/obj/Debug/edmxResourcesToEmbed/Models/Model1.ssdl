@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebCKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID_Account" />
+    </Key>
+    <Property Name="ID_Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="100" />
+    <Property Name="ID_Roles" Type="int" />
+    <Property Name="Image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Email">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Emails" Type="nvarchar" MaxLength="100" />
+    <Property Name="Type" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Faculity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Faculity" Type="int" Nullable="false" />
+    <Property Name="Faculity_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fanpage">
+    <Key>
+      <PropertyRef Name="ID_Fanpage" />
+    </Key>
+    <Property Name="ID_Fanpage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubTitle" Type="nvarchar" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ImageProfile">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="IndustryofFaculity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_IndustryofFaculity" Type="int" Nullable="false" />
+    <Property Name="ID_Faculity" Type="int" />
+    <Property Name="Industry_Name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Roles" Type="int" />
+    <Property Name="Role_Name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Silde">
+    <Key>
+      <PropertyRef Name="ID_Silde" />
+    </Key>
+    <Property Name="ID_Silde" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="400" />
+    <Property Name="Link" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MSSV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Class" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateofBirth" Type="smalldatetime" />
+    <Property Name="DateBegin" Type="smalldatetime" />
+    <Property Name="ID_Faculity" Type="int" />
+    <Property Name="ID_IndustryofFaculity" Type="int" />
+    <Property Name="ID_Subject" Type="int" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubjectName" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Contents" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MSGV" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="NumberPhone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DateofBirth" Type="smalldatetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateBegin" Type="smalldatetime" Nullable="false" />
+    <Property Name="ID_Roles" Type="int" />
+    <Property Name="ID_Faculity" Type="int" />
+    <Property Name="ID_Subject" Type="int" />
+  </EntityType>
+  <EntityContainer Name="WebCKModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email" EntityType="Self.Email" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Faculity" EntityType="Self.Faculity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fanpage" EntityType="Self.Fanpage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ImageProfile" EntityType="Self.ImageProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndustryofFaculity" EntityType="Self.IndustryofFaculity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Silde" EntityType="Self.Silde" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

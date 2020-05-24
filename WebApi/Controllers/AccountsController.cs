@@ -15,7 +15,7 @@ namespace WebApi.Controllers
     public class AccountsController : ApiController
     {
         private data db = new data();
-
+     
         // GET: api/Accounts
         public IQueryable<Account> GetAccounts()
         {

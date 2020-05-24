@@ -5,9 +5,11 @@
       <PropertyRef Name="ID_Account" />
     </Key>
     <Property Name="ID_Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="100" />
-    <Property Name="PassWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="100" />
     <Property Name="ID_Roles" Type="int" />
+    <Property Name="Image" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="Faculity">
     <Key>
@@ -16,7 +18,6 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ID_Faculity" Type="int" Nullable="false" />
     <Property Name="Faculity_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="IndustryOfFaculity" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="Fanpage">
     <Key>
@@ -60,7 +61,7 @@
     <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MSSV" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Class" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="NumberPhone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="NumberPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
     <Property Name="DateofBirth" Type="smalldatetime" />
@@ -74,10 +75,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ID_Subject" Type="int" Nullable="false" />
+    <Property Name="ID_Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="SubjectName" Type="nvarchar" MaxLength="300" Nullable="false" />
     <Property Name="Contents" Type="nvarchar(max)" />
     <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ID_Teacher" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -95,16 +97,28 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
-    <Property Name="MSGV" Type="nvarchar" MaxLength="10" Nullable="false" />
-    <Property Name="NumberPhone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="MSGV" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="NumberPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="DateofBirth" Type="smalldatetime" />
     <Property Name="Address" Type="nvarchar" MaxLength="100" />
-    <Property Name="DateBegin" Type="smalldatetime" Nullable="false" />
+    <Property Name="DateBegin" Type="smalldatetime" />
     <Property Name="ID_Roles" Type="int" />
     <Property Name="ID_Faculity" Type="int" />
     <Property Name="ID_Subject" Type="int" />
   </EntityType>
+  <Association Name="FK_Subject_Teacher">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+    <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Subject">
+        <PropertyRef Name="ID_Teacher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="WebCKModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Faculity" EntityType="Self.Faculity" Schema="dbo" store:Type="Tables" />
@@ -116,5 +130,9 @@
     <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Subject_Teacher" Association="Self.FK_Subject_Teacher">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="Subject" EntitySet="Subject" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

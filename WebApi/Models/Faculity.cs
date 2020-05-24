@@ -17,6 +17,5 @@ namespace WebApi.Models
         public int ID { get; set; }
         public int ID_Faculity { get; set; }
         public string Faculity_Name { get; set; }
-        public string IndustryOfFaculity { get; set; }
     }
 }

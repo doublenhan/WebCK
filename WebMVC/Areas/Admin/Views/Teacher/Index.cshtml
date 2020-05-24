@@ -1,0 +1,79 @@
+﻿@model IEnumerable<WebMVC.Areas.Admin.Models.mvcTeacherModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create","Teacher")" class="btn btn-outline-primary"><i class="fa fa-plus"></i> Thêm mới đề tài</a>
+</p>
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Thông Tin Đề Tài</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="datatab" width="100%" cellspacing="0">
+                <thead>
+                    <tr style="text-align:center ;font-size:medium">
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MSGV)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumberPhone)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>                       
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MSGV)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumberPhone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>                          
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+
+@section scripts{
+    <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(function () {
+            alertify.set('notifier','position', 'top-right');
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        })
+        $(document).ready(function () {
+            $("#datatab").DataTable();
+        })
+    </script>
+}

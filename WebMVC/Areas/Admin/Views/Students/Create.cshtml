@@ -10,6 +10,7 @@
 {
     @Html.AntiForgeryToken()
 
+   
     <div class="form-horizontal">
         @*<h4>mvcStudentModel</h4>*@
         <hr />
@@ -105,16 +106,12 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-success" />
-                <input type="reset" value="Reset" class="btn btn-danger" />                
+                <input type="reset" value="Reset" class="btn btn-danger" />   
+                <a href="@Url.Action("Index","Students")" class="btn btn-outline-warning">Back to List</a>
             </div>
         </div>
     </div>
 }
-
-<div>
-    <button class="btn btn-success" >Back to List</button>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section scripts{
     @Scripts.Render("~/bundles/jqueryval")

@@ -4,6 +4,8 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="WebCKModel.Account">
         <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="ID_Account" ColumnName="ID_Account" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="PassWord" ColumnName="PassWord" />
@@ -17,7 +19,6 @@
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ID_Faculity" ColumnName="ID_Faculity" />
           <ScalarProperty Name="Faculity_Name" ColumnName="Faculity_Name" />
-          <ScalarProperty Name="IndustryOfFaculity" ColumnName="IndustryOfFaculity" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -62,11 +63,11 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="WebCKModel.Student">
         <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="MSSV" ColumnName="MSSV" />
           <ScalarProperty Name="Class" ColumnName="Class" />
-          <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
@@ -80,6 +81,7 @@
     <EntitySetMapping Name="Subjects">
       <EntityTypeMapping TypeName="WebCKModel.Subject">
         <MappingFragment StoreEntitySet="Subject">
+          <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
           <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />

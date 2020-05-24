@@ -10,9 +10,11 @@
             <PropertyRef Name="ID_Account" />
           </Key>
           <Property Name="ID_Account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="100" />
-          <Property Name="PassWord" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PassWord" Type="nvarchar" MaxLength="100" />
           <Property Name="ID_Roles" Type="int" />
+          <Property Name="Image" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Faculity">
           <Key>
@@ -21,7 +23,6 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_Faculity" Type="int" Nullable="false" />
           <Property Name="Faculity_Name" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="IndustryOfFaculity" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Fanpage">
           <Key>
@@ -65,7 +66,7 @@
           <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="MSSV" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Class" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="NumberPhone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NumberPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
           <Property Name="DateofBirth" Type="smalldatetime" />
@@ -79,10 +80,11 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_Subject" Type="int" Nullable="false" />
+          <Property Name="ID_Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SubjectName" Type="nvarchar" MaxLength="300" Nullable="false" />
           <Property Name="Contents" Type="nvarchar(max)" />
           <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ID_Teacher" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -100,16 +102,28 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="MSGV" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="NumberPhone" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MSGV" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumberPhone" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="DateofBirth" Type="smalldatetime" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" />
-          <Property Name="DateBegin" Type="smalldatetime" Nullable="false" />
+          <Property Name="DateBegin" Type="smalldatetime" />
           <Property Name="ID_Roles" Type="int" />
           <Property Name="ID_Faculity" Type="int" />
           <Property Name="ID_Subject" Type="int" />
         </EntityType>
+        <Association Name="FK_Subject_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="ID_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="WebCKModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Faculity" EntityType="Self.Faculity" Schema="dbo" store:Type="Tables" />
@@ -121,6 +135,10 @@
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Subject_Teacher" Association="Self.FK_Subject_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -131,9 +149,11 @@
             <PropertyRef Name="ID_Account" />
           </Key>
           <Property Name="ID_Account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ID_Roles" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Faculity">
           <Key>
@@ -142,7 +162,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_Faculity" Type="Int32" Nullable="false" />
           <Property Name="Faculity_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="IndustryOfFaculity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Fanpage">
           <Key>
@@ -186,7 +205,7 @@
           <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MSSV" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Class" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NumberPhone" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="NumberPhone" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateofBirth" Type="DateTime" Precision="0" />
@@ -200,10 +219,12 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_Subject" Type="Int32" Nullable="false" />
+          <Property Name="ID_Subject" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SubjectName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Contents" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Teacher" Type="Int32" />
+          <NavigationProperty Name="Teacher" Relationship="WebCKModel.FK_Subject_Teacher" FromRole="Subject" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -226,6 +247,10 @@
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Teachers" EntityType="WebCKModel.Teacher" />
+          <AssociationSet Name="FK_Subject_Teacher" Association="WebCKModel.FK_Subject_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Teacher">
           <Key>
@@ -233,16 +258,29 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MSGV" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NumberPhone" Type="Decimal" Nullable="false" Precision="10" Scale="0" />
+          <Property Name="MSGV" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPhone" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DateofBirth" Type="DateTime" Precision="0" />
           <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="DateBegin" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateBegin" Type="DateTime" Precision="0" />
           <Property Name="ID_Roles" Type="Int32" />
           <Property Name="ID_Faculity" Type="Int32" />
           <Property Name="ID_Subject" Type="Int32" />
+          <NavigationProperty Name="Subjects" Relationship="WebCKModel.FK_Subject_Teacher" FromRole="Teacher" ToRole="Subject" />
         </EntityType>
+        <Association Name="FK_Subject_Teacher">
+          <End Type="WebCKModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="WebCKModel.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="ID_Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -252,6 +290,8 @@
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="WebCKModel.Account">
               <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="ID_Account" ColumnName="ID_Account" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="PassWord" ColumnName="PassWord" />
@@ -265,7 +305,6 @@
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Faculity" ColumnName="ID_Faculity" />
                 <ScalarProperty Name="Faculity_Name" ColumnName="Faculity_Name" />
-                <ScalarProperty Name="IndustryOfFaculity" ColumnName="IndustryOfFaculity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -310,11 +349,11 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="WebCKModel.Student">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="MSSV" ColumnName="MSSV" />
                 <ScalarProperty Name="Class" ColumnName="Class" />
-                <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="DateofBirth" ColumnName="DateofBirth" />
@@ -328,6 +367,7 @@
           <EntitySetMapping Name="Subjects">
             <EntityTypeMapping TypeName="WebCKModel.Subject">
               <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
                 <ScalarProperty Name="SubjectName" ColumnName="SubjectName" />

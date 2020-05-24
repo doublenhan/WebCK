@@ -11,11 +11,12 @@ namespace WebMVC.Areas.Admin.Models
         [Required(ErrorMessage = "Thông tin bắt buộc")]
         public string FullName { get; set; }
         [Required(ErrorMessage = "Thông tin bắt buộc")]
+
         public string MSSV { get; set; }
         [Required(ErrorMessage = "Thông tin bắt buộc")]
         public string Class { get; set; }
         [Required(ErrorMessage = "Thông tin bắt buộc")]
-        public decimal NumberPhone { get; set; }
+        public string NumberPhone { get; set; }
         [Required(ErrorMessage = "Thông tin bắt buộc")]
         public string Email { get; set; }
         public string Address { get; set; }

@@ -18,7 +18,7 @@ namespace WebApi.Models
         public string FullName { get; set; }
         public string MSSV { get; set; }
         public string Class { get; set; }
-        public decimal NumberPhone { get; set; }
+        public string NumberPhone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
         public Nullable<System.DateTime> DateofBirth { get; set; }
