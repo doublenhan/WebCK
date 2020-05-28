@@ -39,6 +39,10 @@ namespace WebApi.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTeacher(int id, Teacher teacher)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             if (id != teacher.ID)
             {
@@ -70,6 +74,10 @@ namespace WebApi.Controllers
         [ResponseType(typeof(Teacher))]
         public IHttpActionResult PostTeacher(Teacher teacher)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             db.Teachers.Add(teacher);
             db.SaveChanges();

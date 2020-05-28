@@ -4,18 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7c4dab666494a7da29cd10a3f390b92" Name="Diagram1">
-        <EntityTypeShape EntityType="WebCKModel.Account" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Faculity" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Fanpage" Width="1.5" PointX="4.625" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.IndustryofFaculity" Width="1.5" PointX="2.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Role" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Silde" Width="1.5" PointX="8.125" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Student" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Subject" Width="1.5" PointX="4.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.sysdiagram" Width="1.5" PointX="6.5" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="WebCKModel.Teacher" Width="1.5" PointX="8.75" PointY="0.625" />
+      <Diagram DiagramId="e7c4dab666494a7da29cd10a3f390b92" Name="Diagram1" ZoomLevel="52">
+        <EntityTypeShape EntityType="WebCKModel.Faculity" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Fanpage" Width="1.5" PointX="4" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.IndustryofFaculity" Width="1.5" PointX="1" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Role" Width="1.5" PointX="5.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Silde" Width="1.5" PointX="2.125" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Student" Width="1.5" PointX="7.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Subject" Width="1.5" PointX="11.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.sysdiagram" Width="1.5" PointX="0.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WebCKModel.Teacher" Width="1.5" PointX="9.875" PointY="0.5" />
         <AssociationConnector Association="WebCKModel.FK_Subject_Teacher" />
+        <EntityTypeShape EntityType="WebCKModel.Account" Width="1.5" PointX="5.375" PointY="2.375" />
+        <EntityTypeShape EntityType="WebCKModel.AccountRole" Width="1.5" PointX="2.875" PointY="1.5" />
+        <EntityTypeShape EntityType="WebCKModel.SubjectDetail" Width="1.5" PointX="14" PointY="5.5" />
+        <EntityTypeShape EntityType="WebCKModel.TrackingPaper" Width="1.5" PointX="17" PointY="5.25" />
+        <AssociationConnector Association="WebCKModel.FK_AccountRole_Account" />
+        <AssociationConnector Association="WebCKModel.FK_AccountRole_Roles" />
+        <AssociationConnector Association="WebCKModel.FK_SubjectDetails_Students" />
+        <AssociationConnector Association="WebCKModel.FK_TrackingPaper_Students" />
+        <AssociationConnector Association="WebCKModel.FK_SubjectDetails_Subject" />
+        <AssociationConnector Association="WebCKModel.FK_TrackingPaper_Subject" />
+        <EntityTypeShape EntityType="WebCKModel.Error" Width="1.5" PointX="6.375" PointY="6.75" />
+        <EntityTypeShape EntityType="WebCKModel.T_Subject" Width="1.5" PointX="13.625" PointY="0.5" />
+        <AssociationConnector Association="WebCKModel.FK_T_Subject_Teacher" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

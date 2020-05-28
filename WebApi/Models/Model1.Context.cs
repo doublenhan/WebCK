@@ -25,7 +25,6 @@ namespace WebApi.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Faculity> Faculities { get; set; }
         public virtual DbSet<Fanpage> Fanpages { get; set; }
         public virtual DbSet<IndustryofFaculity> IndustryofFaculities { get; set; }
@@ -35,5 +34,14 @@ namespace WebApi.Models
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<AccountRole> AccountRoles { get; set; }
+        public virtual DbSet<SubjectDetail> SubjectDetails { get; set; }
+        public virtual DbSet<TrackingPaper> TrackingPapers { get; set; }
+        public virtual DbSet<Error> Errors { get; set; }
+        public virtual DbSet<T_Subject> T_Subject { get; set; }
+   
+
+        //public System.Data.Entity.DbSet<WebMVC.Models.mvcT_SubjectModel> mvcT_SubjectModel { get; set; }
     }
 }

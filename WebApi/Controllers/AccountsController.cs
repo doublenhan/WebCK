@@ -15,7 +15,7 @@ namespace WebApi.Controllers
     public class AccountsController : ApiController
     {
         private data db = new data();
-     
+
         // GET: api/Accounts
         public IQueryable<Account> GetAccounts()
         {
@@ -44,7 +44,7 @@ namespace WebApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != account.ID_Account)
+            if (id != account.ID)
             {
                 return BadRequest();
             }
@@ -80,9 +80,24 @@ namespace WebApi.Controllers
             }
 
             db.Accounts.Add(account);
-            db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = account.ID_Account }, account);
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (AccountExists(account.ID))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return CreatedAtRoute("DefaultApi", new { id = account.ID }, account);
         }
 
         // DELETE: api/Accounts/5
@@ -112,7 +127,7 @@ namespace WebApi.Controllers
 
         private bool AccountExists(int id)
         {
-            return db.Accounts.Count(e => e.ID_Account == id) > 0;
+            return db.Accounts.Count(e => e.ID == id) > 0;
         }
     }
 }

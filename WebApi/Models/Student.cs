@@ -14,6 +14,13 @@ namespace WebApi.Models
     
     public partial class Student
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Student()
+        {
+            this.SubjectDetails = new HashSet<SubjectDetail>();
+            this.TrackingPapers = new HashSet<TrackingPaper>();
+        }
+    
         public int ID { get; set; }
         public string FullName { get; set; }
         public string MSSV { get; set; }
@@ -26,5 +33,11 @@ namespace WebApi.Models
         public Nullable<int> ID_Faculity { get; set; }
         public Nullable<int> ID_IndustryofFaculity { get; set; }
         public Nullable<int> ID_Subject { get; set; }
+        public string IdentificationCard { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubjectDetail> SubjectDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TrackingPaper> TrackingPapers { get; set; }
     }
 }

@@ -14,8 +14,16 @@ namespace WebApi.Models
     
     public partial class Role
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Role()
+        {
+            this.AccountRoles = new HashSet<AccountRole>();
+        }
+    
         public int ID { get; set; }
-        public Nullable<int> ID_Roles { get; set; }
         public string Role_Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AccountRole> AccountRoles { get; set; }
     }
 }

@@ -14,11 +14,24 @@ namespace WebApi.Models
     
     public partial class Account
     {
-        public int ID_Account { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Account()
+        {
+            this.AccountRoles = new HashSet<AccountRole>();
+        }
+    
+        public int ID { get; set; }
+        public string UserName { get; set; }
         public string Email { get; set; }
         public string PassWord { get; set; }
-        public Nullable<int> ID_Roles { get; set; }
-        public string UserName { get; set; }
         public string Image { get; set; }
+        public string Gender { get; set; }
+        public string Type { get; set; }
+        public string FristName { get; set; }
+        public string LastName { get; set; }
+        public Nullable<bool> isActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AccountRole> AccountRoles { get; set; }
     }
 }

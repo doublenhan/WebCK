@@ -39,6 +39,11 @@ namespace WebApi.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutFaculity(int id, Faculity faculity)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             if (id != faculity.ID)
             {
                 return BadRequest();
@@ -69,6 +74,10 @@ namespace WebApi.Controllers
         [ResponseType(typeof(Faculity))]
         public IHttpActionResult PostFaculity(Faculity faculity)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             db.Faculities.Add(faculity);
             db.SaveChanges();

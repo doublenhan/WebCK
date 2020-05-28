@@ -39,6 +39,10 @@ namespace WebApi.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutStudent(int id, Student student)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
             if (id != student.ID)
             {
@@ -46,6 +50,7 @@ namespace WebApi.Controllers
             }
 
             db.Entry(student).State = EntityState.Modified;
+
             try
             {
                 db.SaveChanges();
@@ -69,6 +74,11 @@ namespace WebApi.Controllers
         [ResponseType(typeof(Student))]
         public IHttpActionResult PostStudent(Student student)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             db.Students.Add(student);
             db.SaveChanges();
 

@@ -14,13 +14,28 @@ namespace WebApi.Models
     
     public partial class Subject
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Subject()
+        {
+            this.SubjectDetails = new HashSet<SubjectDetail>();
+            this.TrackingPapers = new HashSet<TrackingPaper>();
+        }
+    
         public int ID { get; set; }
         public string ID_Subject { get; set; }
         public string SubjectName { get; set; }
         public string Contents { get; set; }
         public string Description { get; set; }
         public Nullable<int> ID_Teacher { get; set; }
+        public Nullable<System.DateTime> DateBegin { get; set; }
+        public string SubjectTarget { get; set; }
+        public string Result { get; set; }
+        public Nullable<bool> isActive { get; set; }
     
         public virtual Teacher Teacher { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubjectDetail> SubjectDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TrackingPaper> TrackingPapers { get; set; }
     }
 }

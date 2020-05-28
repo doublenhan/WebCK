@@ -1,23 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="WebCKModelStoreContainer" CdmEntityContainer="data">
-    <EntitySetMapping Name="Accounts">
-      <EntityTypeMapping TypeName="WebCKModel.Account">
-        <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="ID_Account" ColumnName="ID_Account" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-          <ScalarProperty Name="ID_Roles" ColumnName="ID_Roles" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Faculities">
       <EntityTypeMapping TypeName="WebCKModel.Faculity">
         <MappingFragment StoreEntitySet="Faculity">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ID_Faculity" ColumnName="ID_Faculity" />
           <ScalarProperty Name="Faculity_Name" ColumnName="Faculity_Name" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -45,7 +32,6 @@
       <EntityTypeMapping TypeName="WebCKModel.Role">
         <MappingFragment StoreEntitySet="Roles">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="ID_Roles" ColumnName="ID_Roles" />
           <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -63,6 +49,7 @@
     <EntitySetMapping Name="Students">
       <EntityTypeMapping TypeName="WebCKModel.Student">
         <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="IdentificationCard" ColumnName="IdentificationCard" />
           <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -81,6 +68,10 @@
     <EntitySetMapping Name="Subjects">
       <EntityTypeMapping TypeName="WebCKModel.Subject">
         <MappingFragment StoreEntitySet="Subject">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="SubjectTarget" ColumnName="SubjectTarget" />
+          <ScalarProperty Name="DateBegin" ColumnName="DateBegin" />
           <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
@@ -104,6 +95,7 @@
     <EntitySetMapping Name="Teachers">
       <EntityTypeMapping TypeName="WebCKModel.Teacher">
         <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="IdentificationCard" ColumnName="IdentificationCard" />
           <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
           <ScalarProperty Name="ID_Faculity" ColumnName="ID_Faculity" />
           <ScalarProperty Name="ID_Roles" ColumnName="ID_Roles" />
@@ -114,6 +106,76 @@
           <ScalarProperty Name="NumberPhone" ColumnName="NumberPhone" />
           <ScalarProperty Name="MSGV" ColumnName="MSGV" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="WebCKModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FristName" ColumnName="FristName" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccountRoles">
+      <EntityTypeMapping TypeName="WebCKModel.AccountRole">
+        <MappingFragment StoreEntitySet="AccountRole">
+          <ScalarProperty Name="ID_Account" ColumnName="ID_Account" />
+          <ScalarProperty Name="ID_Role" ColumnName="ID_Role" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubjectDetails">
+      <EntityTypeMapping TypeName="WebCKModel.SubjectDetail">
+        <MappingFragment StoreEntitySet="SubjectDetails">
+          <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+          <ScalarProperty Name="PrecentComplete" ColumnName="PrecentComplete" />
+          <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrackingPapers">
+      <EntityTypeMapping TypeName="WebCKModel.TrackingPaper">
+        <MappingFragment StoreEntitySet="TrackingPaper">
+          <ScalarProperty Name="FileUpload" ColumnName="FileUpload" />
+          <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
+          <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+          <ScalarProperty Name="TrackingTime" ColumnName="TrackingTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Errors">
+      <EntityTypeMapping TypeName="WebCKModel.Error">
+        <MappingFragment StoreEntitySet="Error">
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Subject">
+      <EntityTypeMapping TypeName="WebCKModel.T_Subject">
+        <MappingFragment StoreEntitySet="T_Subject">
+          <ScalarProperty Name="ID_Teacher" ColumnName="ID_Teacher" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="T_SubjectName" ColumnName="T_SubjectName" />
+          <ScalarProperty Name="ID_Subject" ColumnName="ID_Subject" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

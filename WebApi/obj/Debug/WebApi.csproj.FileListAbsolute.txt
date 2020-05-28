@@ -1,3 +1,4 @@
+D:\New folder\WebCK\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 D:\New folder\WebCK\WebApi\bin\WebApi.dll.config
 D:\New folder\WebCK\WebApi\bin\WebApi.dll
 D:\New folder\WebCK\WebApi\bin\WebApi.pdb
@@ -82,7 +83,6 @@ D:\New folder\WebCK\WebApi\bin\System.Web.WebPages.Deployment.xml
 D:\New folder\WebCK\WebApi\bin\System.Web.WebPages.Razor.xml
 D:\New folder\WebCK\WebApi\bin\Antlr3.Runtime.pdb
 D:\New folder\WebCK\WebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\New folder\WebCK\WebApi\obj\Debug\WebApi.csproj.CoreCompileInputs.cache
 D:\New folder\WebCK\WebApi\obj\Debug\WebApi.csproj.CopyComplete
 D:\New folder\WebCK\WebApi\obj\Debug\WebApi.dll
 D:\New folder\WebCK\WebApi\obj\Debug\WebApi.pdb

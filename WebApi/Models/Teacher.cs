@@ -18,6 +18,7 @@ namespace WebApi.Models
         public Teacher()
         {
             this.Subjects = new HashSet<Subject>();
+            this.T_Subject = new HashSet<T_Subject>();
         }
     
         public int ID { get; set; }
@@ -31,8 +32,11 @@ namespace WebApi.Models
         public Nullable<int> ID_Roles { get; set; }
         public Nullable<int> ID_Faculity { get; set; }
         public Nullable<int> ID_Subject { get; set; }
+        public string IdentificationCard { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subject> Subjects { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_Subject> T_Subject { get; set; }
     }
 }

@@ -15,7 +15,6 @@ namespace WebApi.Models
     public partial class Faculity
     {
         public int ID { get; set; }
-        public int ID_Faculity { get; set; }
         public string Faculity_Name { get; set; }
     }
 }
